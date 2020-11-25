@@ -1,0 +1,39 @@
+@import './src/assets/colours';
+
+.navbar{
+  //border-bottom: 1px solid grey;
+  //box-shadow: 0 1px 3px 0 rgba(0, 0, 29, 0.2);
+  background: $primary;
+  width: 100%;
+
+  .logo-icon{
+    padding: .25rem .25rem 0;
+  }
+
+  &-container{
+    width: 100%;
+    display: inline-block;
+  }
+
+  .nav-link{
+    &-container{
+      display: flex;
+      justify-content: flex-start;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    &-item{
+      display: block;
+      align-self:  flex-start;
+      padding: 1.25rem;
+      color: $primary-contrast-text;
+      text-decoration: none;
+
+      &:hover{
+        background-color: $primary-light;
+      }
+    }
+  }
+}

@@ -1,0 +1,29 @@
+<div class="weather-section">
+  <mat-progress-bar mode="buffer"*ngIf="!cityWeather"></mat-progress-bar>
+  <app-small-card class="weather-card" *ngIf="cityWeather">
+    <div><h1 class="weather-city">{{cityWeather.name}}</h1></div>
+    <div><h3 class="weather-desc">{{cityWeather.weather[0].main}}</h3></div>
+    <div><img class="weather-img" *ngIf="weatherIconImgSrc"
+           [src]="weatherIconImgSrc" alt="Weather image" [title]="cityWeather.weather[0].description"></div>
+  </app-small-card>
+
+  <app-small-card class="weather-search">
+    <form class="example-form">
+      <mat-form-field class="example-full-width">
+        <input type="text"
+               placeholder="Pick one"
+               aria-label="Number"
+               matInput
+               [formControl]="myControl"
+               [matAutocomplete]="auto"
+               (input)="updateAutofill($event.target.value)">
+        <mat-autocomplete #auto="matAutocomplete" (optionSelected)="getCurrentWeather($event.option.value)">
+          <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+            {{option}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </form>
+  </app-small-card>
+<!--  <pre>{{ cityWeather | json}}</pre>-->
+</div>

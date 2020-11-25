@@ -1,0 +1,25 @@
+@import './src/assets/colours';
+.summary{
+  &-container{
+    display: flex;
+    div{
+      text-align: center;
+      height: auto;
+      flex-basis: 33%;
+      margin: 1.25rem;
+    }
+    span{
+      color: $primary-light;
+      font-size: 15px;
+    }
+  }
+
+  &-icon{
+    font-size: 60px;
+    color: $primary-light;
+
+    &-container{
+      margin: 1.5rem 0;
+    }
+  }
+}
