@@ -1,3 +1,4 @@
+@import './src/assets/colours';
 .example-form {
   min-width: 150px;
   max-width: 500px;
@@ -7,29 +8,69 @@
 .example-full-width {
   width: 100%;
 }
-.weather-section{
+
+.weather-container{
   display: flex;
-}
-.weather-search{
-  flex-grow: 2;
-}
-app-small-card{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  flex-grow: 1;
-}
-.weather-card{
-  .weather-city,
-  .weather-desc{
-    text-align: center;
+  color: $primary-light;
+
+  &-left,
+  &-right{
+    padding: 1rem;
+    flex-basis: 50%;
   }
 
-  .weather-img{
+  .weather-city{
+    font-size: 20px;
+    font-weight: 500;
+  }
+
+  .link-to-map{
+    text-align: end;
+  }
+
+  .weather-info{
+    margin-top: 35%;
     display: block;
-    margin-left: auto;
-    margin-right: auto;
+    text-align: end;
+    font-weight: 200;
+
+    fa{
+      font-size: 11px;
+    }
   }
 
+  img.weather-img,
+  .weather-temp{
+    align-self: center;
 
+    span{
+      font-size: 38px;
+    }
+  }
+
+  .weather-img-container{
+    display: flex;
+    padding-top: 1.25rem;
+  }
+}
+
+.weather-results-container{
+  display: flex;
+  .weather-card{
+    flex-basis: 38%;
+  }
+}
+.weather-forecast{
+  flex-basis: 60%;
+  width: 100%;
+  text-align: center;
+  table{
+    width:100%;
+
+    th,
+    td{
+      padding-right: 1rem;
+      padding-left: 1rem;
+    }
+  }
 }

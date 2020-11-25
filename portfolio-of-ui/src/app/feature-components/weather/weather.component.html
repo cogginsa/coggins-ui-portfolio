@@ -1,12 +1,4 @@
 <div class="weather-section">
-  <mat-progress-bar mode="buffer"*ngIf="!cityWeather"></mat-progress-bar>
-  <app-small-card class="weather-card" *ngIf="cityWeather">
-    <div><h1 class="weather-city">{{cityWeather.name}}</h1></div>
-    <div><h3 class="weather-desc">{{cityWeather.weather[0].main}}</h3></div>
-    <div><img class="weather-img" *ngIf="weatherIconImgSrc"
-           [src]="weatherIconImgSrc" alt="Weather image" [title]="cityWeather.weather[0].description"></div>
-  </app-small-card>
-
   <app-small-card class="weather-search">
     <form class="example-form">
       <mat-form-field class="example-full-width">
@@ -25,5 +17,77 @@
       </mat-form-field>
     </form>
   </app-small-card>
+
+  <div class="weather-results-container">
+    <app-small-card class="weather-card">
+      <mat-progress-bar mode="buffer" *ngIf="!cityWeather"></mat-progress-bar>
+      <div class="weather-container" *ngIf="cityWeather">
+        <div class="weather-container-left">
+          <div>
+            <span class="weather-city">{{cityWeather.name}}</span><br>
+            <span>Wednesday 12:00</span><br>
+            <span class="weather-desc">{{cityWeather.weather[0].main}}</span>
+          </div>
+          <div class="weather-img-container">
+            <div>
+            <img class="weather-img" *ngIf="weatherIconImgSrc"
+                 [src]="weatherIconImgSrc" alt="Weather image" [title]="cityWeather.weather[0].description"></div>
+            <div class="weather-temp"><span>{{cityWeather.main.temp}}°C</span></div>
+          </div>
+        </div>
+        <div class="weather-container-right">
+          <div class="link-to-map"><a href="#">show on map -></a></div>
+          <div class="weather-info">
+            Precipitation: 11%<br>
+            Humidity: 80%<br>
+            Wind: 6 mph<br>
+            <span style="color: red">14°c<fa style="color: red" name="chevron-up"></fa></span><br>
+            <span style="color: deepskyblue">3°c<fa style="color: deepskyblue" name="chevron-down"></fa></span>
+          </div>
+        </div>
+      </div>
+    </app-small-card>
+    <app-small-card class="weather-forecast">
+      <table style="width:66%">
+        <tr>
+          <th>Monday</th>
+          <th>Tuesday</th>
+          <th>Wednesday</th>
+          <th>Thursday</th>
+          <th>Friday</th>
+          <th>Saturday</th>
+          <th>Sunday</th>
+        </tr>
+        <tr>
+          <td>Sun</td>
+          <td>Cloud</td>
+          <td>Cloud</td>
+          <td>Rain</td>
+          <td>Rain</td>
+          <td>Rain</td>
+          <td>Sun</td>
+        </tr>
+        <tr>
+          <td>14°</td>
+          <td>14°</td>
+          <td>14°</td>
+          <td>14°</td>
+          <td>14°</td>
+          <td>14°</td>
+          <td>14°</td>
+        </tr>
+        <tr>
+          <td>3°</td>
+          <td>3°</td>
+          <td>3°</td>
+          <td>3°</td>
+          <td>3°</td>
+          <td>3°</td>
+          <td>3°</td>
+        </tr>
+
+      </table>
+    </app-small-card>
+  </div>
 <!--  <pre>{{ cityWeather | json}}</pre>-->
 </div>
