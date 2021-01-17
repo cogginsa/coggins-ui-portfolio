@@ -1,34 +1,43 @@
-import { Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {WeatherApiService} from "../../../api/weatherApi";
-import {Observable} from "rxjs";
+import {fromEvent, Observable, OperatorFunction} from "rxjs";
 import {FormControl} from "@angular/forms";
-import {map, startWith} from "rxjs/operators";
+import {debounceTime, distinctUntilChanged, map, startWith, timeout} from "rxjs/operators";
 import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common';
 import {CityAutofillApiService} from "../../../api/cityAutofillApi";
+import {CityApiService} from "../../../api/cityApi";
+import {CityDateService} from "../../sevices/city-date.service";
+import {UserLocationService} from "../../sevices/user-location.service";
 
 @Component({
   selector: 'app-weather',
   templateUrl: './weather.component.html',
-  styleUrls: ['./weather.component.scss'],
-  providers: [Location, {provide: LocationStrategy, useClass: PathLocationStrategy}]
+  styleUrls: ['./weather.component.scss']
 })
-export class WeatherComponent implements OnInit {
+
+export class WeatherComponent implements OnInit, AfterViewInit {
+
+@ViewChild('matAutocompleteInput') matAutocompleteInput: ElementRef;
 
   userSearchParam = '';
   cityWeather = null;
   weatherIconImgSrc = null;
   myControl = new FormControl();
-  options: string[] = [];
-  filteredOptions: Observable<string[]>;
+  options = [];
+  filteredOptions: Observable<any>;
+  cityDate: string;
 
-  public lat;
-  public lng;
-  constructor(private weatherApiService: WeatherApiService, private cityAutofillApiService: CityAutofillApiService) {}
+  input = document.getElementById('my-input');
+
+  constructor(private weatherApiService: WeatherApiService,
+              private cityAutofillApiService: CityAutofillApiService,
+              private cityApiService: CityApiService,
+              private cityDateService: CityDateService,
+              private userLocationService: UserLocationService) {}
 
   ngOnInit() {
-    this.getLocation();
-    this.subscribeToCurrentWeather('london, uk');
-    // this.getCityAutoFill();
+    this.userLocationService.getLocation();
+    this.subscribeToCurrentWeather({name: 'london, uk', id: "45633"});
     this.filteredOptions = this.myControl.valueChanges
       .pipe(
         startWith(''),
@@ -36,8 +45,16 @@ export class WeatherComponent implements OnInit {
       );
   }
 
+  public getDisplayFn() {
+    return (val) => this.display(val);
+  }
+
+  private display(user): string {
+    return user ? user.name : user;
+  }
+
   updateAutofill(userInput){
-    if(this.shouldPerformRequest(userInput) && userInput.length >= 2) {
+    if(this.shouldPerformRequest(userInput) && userInput.length > 2) {
       this.getCityAutoFill(userInput);
     }
   }
@@ -48,9 +65,21 @@ export class WeatherComponent implements OnInit {
 
   getCityAutoFill(userInput){
     this.userSearchParam = userInput;
-    this.cityAutofillApiService.getCityAutoFill(userInput).subscribe((cityAutofill) => {
+    this.cityAutofillApiService.getCityAutofillApi(userInput).subscribe((cityAutofill) => {
       this.options = cityAutofill;
     });
+  }
+
+  setCurrentCityDateTime(selectedCity){
+    this.cityApiService.getCityTime(selectedCity).subscribe((cityDateTimeResponse) => {
+      this.cityDate = cityDateTimeResponse.data;
+    });
+  }
+
+  removeMili(cityDateTime){
+    console.log("cityDateTime: ", cityDateTime)
+    console.log("cityDateTime2: ", cityDateTime.split(".")[0])
+    return cityDateTime.split(".")[0];
   }
 
   getCurrentWeather(selectedValue){
@@ -58,38 +87,28 @@ export class WeatherComponent implements OnInit {
   }
 
   subscribeToCurrentWeather(city){
-    this.weatherApiService.getWeatherByCityMock(city).subscribe((cityWeatherResp) => {
+    this.weatherApiService.getWeatherByCity(city.name).subscribe((cityWeatherResp) => {
       this.cityWeather = cityWeatherResp;
       this.setWeatherIconImg(cityWeatherResp.weather[0]);
+      this.setCurrentCityDateTime(city.id);
     });
   }
 
+  ngAfterViewInit(): void {
+    fromEvent(this.matAutocompleteInput.nativeElement, 'input')
+      .pipe(map((event: Event) => (event.target as HTMLInputElement).value))
+      .pipe(debounceTime(1000))
+      .pipe(distinctUntilChanged())
+      .subscribe(data => this.updateAutofill(data));
+  }
 
   setWeatherIconImg(weatherGroup){
     this.weatherIconImgSrc = `../../assets/weather-icons/${weatherGroup.icon}.png`;
   }
 
-  private _filter(value: string): string[] {
-    const filterValue = value.toLowerCase();
-
-    return this.options.filter(option => option.toLowerCase().includes(filterValue));
+  private _filter(value) {
+    const filterValue = value.name ? value.name.toLowerCase() : value.toLowerCase();
+    return this.options.filter(option => option.name.toLowerCase().includes(filterValue));
   }
-
-  getLocation() {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition((position: Position) => {
-          if (position) {
-            console.log("Latitude: " + position.coords.latitude +
-              "Longitude: " + position.coords.longitude);
-            this.lat = position.coords.latitude;
-            this.lng = position.coords.longitude;
-          }
-        },
-        (error: PositionError) => console.log(error));
-    } else {
-      alert("Geolocation is not supported by this browser.");
-    }
-  }
-
 
 }

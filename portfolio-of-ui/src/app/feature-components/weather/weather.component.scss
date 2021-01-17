@@ -9,68 +9,38 @@
   width: 100%;
 }
 
-.weather-container{
-  display: flex;
-  color: $primary-light;
-
-  &-left,
-  &-right{
-    padding: 1rem;
-    flex-basis: 50%;
-  }
-
-  .weather-city{
-    font-size: 20px;
-    font-weight: 500;
-  }
-
-  .link-to-map{
-    text-align: end;
-  }
-
-  .weather-info{
-    margin-top: 35%;
-    display: block;
-    text-align: end;
-    font-weight: 200;
-
-    fa{
-      font-size: 11px;
-    }
-  }
-
-  img.weather-img,
-  .weather-temp{
-    align-self: center;
-
-    span{
-      font-size: 38px;
-    }
-  }
-
-  .weather-img-container{
-    display: flex;
-    padding-top: 1.25rem;
-  }
-}
-
 .weather-results-container{
-  display: flex;
-  .weather-card{
-    flex-basis: 38%;
+  display: block;
+  .weather-day-forcast-card{
+    margin: auto;
+  }
+  .weather-week-forcast-card{
+    //flex-grow: 2;
   }
 }
-.weather-forecast{
-  flex-basis: 60%;
-  width: 100%;
-  text-align: center;
-  table{
-    width:100%;
 
-    th,
-    td{
-      padding-right: 1rem;
+@media only screen and (min-width: 1200px) {
+  .weather-results-container{
+    display: flex;
+    .weather-day-forcast-card{
+      flex-grow: 1;
+    }
+    .weather-week-forcast-card{
+      flex-grow: 3;
+    }
+  }
+}
+
+::ng-deep .mat-form-field{
+  width: 100%;
+  .mat-form-field-flex {
+    border-radius: 4px;
+    border: .5px $secondary solid;
+    box-shadow: 0 3px .4em $secondary;
+
+    input{
       padding-left: 1rem;
     }
   }
 }
+

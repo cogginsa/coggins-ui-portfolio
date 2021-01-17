@@ -1,17 +1,16 @@
 <div class="weather-section">
   <app-small-card class="weather-search">
-    <form class="example-form">
-      <mat-form-field class="example-full-width">
-        <input type="text"
-               placeholder="Pick one"
+    <form>
+      <mat-form-field>
+        <input #matAutocompleteInput
+          type="text"
                aria-label="Number"
                matInput
                [formControl]="myControl"
-               [matAutocomplete]="auto"
-               (input)="updateAutofill($event.target.value)">
-        <mat-autocomplete #auto="matAutocomplete" (optionSelected)="getCurrentWeather($event.option.value)">
-          <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-            {{option}}
+               [matAutocomplete]="auto">
+        <mat-autocomplete #auto="matAutocomplete" (optionSelected)="getCurrentWeather($event.option.value)" [displayWith]="getDisplayFn()">
+          <mat-option *ngFor="let option of filteredOptions | async " [value]="option">
+            {{option.name}}
           </mat-option>
         </mat-autocomplete>
       </mat-form-field>
@@ -19,75 +18,13 @@
   </app-small-card>
 
   <div class="weather-results-container">
-    <app-small-card class="weather-card">
-      <mat-progress-bar mode="buffer" *ngIf="!cityWeather"></mat-progress-bar>
-      <div class="weather-container" *ngIf="cityWeather">
-        <div class="weather-container-left">
-          <div>
-            <span class="weather-city">{{cityWeather.name}}</span><br>
-            <span>Wednesday 12:00</span><br>
-            <span class="weather-desc">{{cityWeather.weather[0].main}}</span>
-          </div>
-          <div class="weather-img-container">
-            <div>
-            <img class="weather-img" *ngIf="weatherIconImgSrc"
-                 [src]="weatherIconImgSrc" alt="Weather image" [title]="cityWeather.weather[0].description"></div>
-            <div class="weather-temp"><span>{{cityWeather.main.temp}}°C</span></div>
-          </div>
-        </div>
-        <div class="weather-container-right">
-          <div class="link-to-map"><a href="#">show on map -></a></div>
-          <div class="weather-info">
-            Precipitation: 11%<br>
-            Humidity: 80%<br>
-            Wind: 6 mph<br>
-            <span style="color: red">14°c<fa style="color: red" name="chevron-up"></fa></span><br>
-            <span style="color: deepskyblue">3°c<fa style="color: deepskyblue" name="chevron-down"></fa></span>
-          </div>
-        </div>
-      </div>
-    </app-small-card>
-    <app-small-card class="weather-forecast">
-      <table style="width:66%">
-        <tr>
-          <th>Monday</th>
-          <th>Tuesday</th>
-          <th>Wednesday</th>
-          <th>Thursday</th>
-          <th>Friday</th>
-          <th>Saturday</th>
-          <th>Sunday</th>
-        </tr>
-        <tr>
-          <td>Sun</td>
-          <td>Cloud</td>
-          <td>Cloud</td>
-          <td>Rain</td>
-          <td>Rain</td>
-          <td>Rain</td>
-          <td>Sun</td>
-        </tr>
-        <tr>
-          <td>14°</td>
-          <td>14°</td>
-          <td>14°</td>
-          <td>14°</td>
-          <td>14°</td>
-          <td>14°</td>
-          <td>14°</td>
-        </tr>
-        <tr>
-          <td>3°</td>
-          <td>3°</td>
-          <td>3°</td>
-          <td>3°</td>
-          <td>3°</td>
-          <td>3°</td>
-          <td>3°</td>
-        </tr>
+    <weather-day-forecast class="weather-day-forcast-card"
+                          [cityWeather]="cityWeather"
+                          [cityDate]="cityDate"
+                          [weatherIconImgSrc]="weatherIconImgSrc">
+    </weather-day-forecast>
 
-      </table>
-    </app-small-card>
+    <weather-week-forecast class="weather-week-forcast-card"></weather-week-forecast>
   </div>
 <!--  <pre>{{ cityWeather | json}}</pre>-->
 </div>

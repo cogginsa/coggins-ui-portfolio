@@ -1,0 +1,44 @@
+<app-small-card class="weather-forecast">
+  <div>
+    <table>
+      <tr class="normal-view-th">
+        <ng-container *ngFor="let day of normalViewTableHeader">
+          <th>{{day}}</th>
+        </ng-container>
+      </tr>
+      <tr class="small-view-th">
+        <ng-container *ngFor="let day of smallViewTableHeader">
+          <th>{{day}}</th>
+        </ng-container>
+      </tr>
+      <tr>
+        <td>Sun</td>
+        <td>Cloud</td>
+        <td>Cloud</td>
+        <td>Rain</td>
+        <td>Rain</td>
+        <td>Rain</td>
+        <td>Sun</td>
+      </tr>
+      <tr>
+        <td>14°</td>
+        <td>14°</td>
+        <td>14°</td>
+        <td>14°</td>
+        <td>14°</td>
+        <td>14°</td>
+        <td>14°</td>
+      </tr>
+      <tr>
+        <td>3°</td>
+        <td>3°</td>
+        <td>3°</td>
+        <td>3°</td>
+        <td>3°</td>
+        <td>3°</td>
+        <td>3°</td>
+      </tr>
+
+    </table>
+  </div>
+</app-small-card>

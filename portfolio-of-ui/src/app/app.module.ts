@@ -17,6 +17,10 @@ import {CityAutofillApiService} from "../api/cityAutofillApi";
 import {MatProgressBarModule} from "@angular/material/progress-bar";
 import {AngularFontAwesomeModule} from "angular-font-awesome";
 import { SummaryComponentComponent } from './feature-components/summary-component/summary-component.component';
+import {CityApiService} from "../api/cityApi";
+import { WeekForecastComponent } from './feature-components/weather/week-forecast/week-forecast.component';
+import { HourForecastComponent } from './feature-components/weather/hour-forecast/hour-forecast.component';
+import { DayForecastComponent } from './feature-components/weather/day-forecast/day-forecast.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +29,10 @@ import { SummaryComponentComponent } from './feature-components/summary-componen
     WeatherComponent,
     NavBarComponent,
     SmallCardComponent,
-    SummaryComponentComponent
+    SummaryComponentComponent,
+    WeekForecastComponent,
+    HourForecastComponent,
+    DayForecastComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +46,7 @@ import { SummaryComponentComponent } from './feature-components/summary-componen
     MatProgressBarModule,
     AngularFontAwesomeModule
   ],
-  providers: [WeatherApiService, CityAutofillApiService],
+  providers: [WeatherApiService, CityAutofillApiService, CityApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
