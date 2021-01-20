@@ -15,7 +15,6 @@ import {MatInputModule} from "@angular/material/input";
 import { SmallCardComponent } from './layout-components/small-card/small-card.component';
 import {CityAutofillApiService} from "../api/cityAutofillApi";
 import {MatProgressBarModule} from "@angular/material/progress-bar";
-import {AngularFontAwesomeModule} from "angular-font-awesome";
 import { SummaryComponentComponent } from './feature-components/summary-component/summary-component.component';
 import {CityApiService} from "../api/cityApi";
 import { WeekForecastComponent } from './feature-components/weather/week-forecast/week-forecast.component';
@@ -43,8 +42,7 @@ import { DayForecastComponent } from './feature-components/weather/day-forecast/
     ReactiveFormsModule,
     FormsModule,
     MatInputModule,
-    MatProgressBarModule,
-    AngularFontAwesomeModule
+    MatProgressBarModule
   ],
   providers: [WeatherApiService, CityAutofillApiService, CityApiService],
   bootstrap: [AppComponent]
