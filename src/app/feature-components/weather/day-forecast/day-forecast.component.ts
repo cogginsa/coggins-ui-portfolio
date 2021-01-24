@@ -1,7 +1,4 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {WeatherApiService} from "../../../../api/weatherApi";
-import {CityAutofillApiService} from "../../../../api/cityAutofillApi";
-import {CityApiService} from "../../../../api/cityApi";
 import {CityDateService} from "../../../sevices/city-date.service";
 
 @Component({
