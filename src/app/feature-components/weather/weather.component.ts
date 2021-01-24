@@ -87,7 +87,7 @@ export class WeatherComponent implements OnInit, AfterViewInit {
   }
 
   subscribeToCurrentWeather(city){
-    this.weatherApiService.getWeatherByCity(city.name).subscribe((cityWeatherResp) => {
+    this.weatherApiService.getWeatherByCityMock(city.name).subscribe((cityWeatherResp) => {
       this.cityWeather = cityWeatherResp;
       this.setWeatherIconImg(cityWeatherResp.weather[0]);
       this.setCurrentCityDateTime(city.id);

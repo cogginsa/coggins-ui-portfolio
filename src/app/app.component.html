@@ -1,11 +1,17 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<app-nav-bar></app-nav-bar>
-<div class="banner"><img class="banner-image" [src]="'../assets/marvin-meyer-SYTO3xs06fU-unsplash.jpg'"></div>
+<div #banner class="banner">
+  <div class="banner-image">
+  <a (click)="scrollToFirstCard()" class="down-icon pointer">
+    <mat-icon>arrow_circle_down</mat-icon>
+  </a>
+</div>
+<app-nav-bar [isBannerAtTop]="isBannerAtTop"></app-nav-bar>
 <app-large-card>
   <app-summary-component></app-summary-component>
 </app-large-card>
 <app-large-card>
   <app-weather></app-weather>
 </app-large-card>
-<app-large-card></app-large-card>
+<app-large-card>CARD 2</app-large-card>
+<app-large-card>CARD 3</app-large-card>
 <router-outlet></router-outlet>

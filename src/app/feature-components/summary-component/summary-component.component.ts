@@ -12,4 +12,10 @@ export class SummaryComponentComponent implements OnInit {
   ngOnInit() {
   }
 
+  
+  scrollToCard(cardIndex) {
+    let el = document.getElementsByTagName("app-large-card")[cardIndex]    
+    el.scrollIntoView({behavior: "smooth"});
+  }
+
 }

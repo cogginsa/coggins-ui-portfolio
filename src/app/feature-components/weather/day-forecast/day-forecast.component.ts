@@ -15,10 +15,7 @@ export class DayForecastComponent {
   @Input() weatherIconImgSrc;
   @Input() cityDate;
 
-  constructor(private weatherApiService: WeatherApiService,
-              private cityAutofillApiService: CityAutofillApiService,
-              private cityApiService: CityApiService,
-              private cityDateService: CityDateService) { }
+  constructor(private cityDateService: CityDateService) { }
 
 
   getCurrentCityDateTime(){

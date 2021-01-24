@@ -1,9 +1,15 @@
 @import './src/assets/colours';
 
+.transparentBanner {
+  .nav-link-item:hover{
+    background-color: rgba(255, 255, 255, 0.17) !important;
+  }
+}
+
+.blockBanner {
+  background: black;
+}
 .navbar{
-  //border-bottom: 1px solid grey;
-  //box-shadow: 0 1px 3px 0 rgba(0, 0, 29, 0.2);
-  background: $primary;
   width: 100%;
 
   .logo-icon{
@@ -30,9 +36,10 @@
       padding: 1.25rem;
       color: $primary-contrast-text;
       text-decoration: none;
+      font-weight: 500;
 
       &:hover{
-        background-color: $primary-light;
+        background-color: #1a1a1a;
       }
     }
   }
