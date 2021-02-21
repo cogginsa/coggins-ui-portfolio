@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400&display=swap');
+@import '../../../../assets/colours';
+.description-container{
+
+    padding: 1.75rem;
+    span{
+        display: block;
+        color: #565656;
+        text-align: end;
+        font-family: 'Roboto Slab';
+        font-weight: 300;
+    }
+    
+    .header{
+        font-size: 16px;
+        font-weight: 400;
+        padding-bottom: 1.25rem;
+    }
+    
+    .summary{
+        font-size: 14px;
+    }
+
+    .search-container{
+        padding-top: 25%;
+
+        form{
+            padding: 1.25rem 0;
+            float: right;
+            // width: 100%;
+        }
+        input{
+            text-align: end;
+            min-width: 270px;
+            outline: none;
+            border: none;
+            &:focus{
+                outline: none;
+                border: none;
+            }
+        }
+        mat-icon{
+            vertical-align: middle;
+            font-size: 20px;
+            color: $accent;
+        }
+    }
+
+}
+    
+.active-accent input[type=text]:not([readonly]) {
+    border-bottom: 1px solid $accent;
+    box-shadow: 0 1px 0 0 $accent;
+}
+    
