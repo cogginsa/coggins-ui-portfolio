@@ -1,13 +1,11 @@
 @import './src/assets/colours';
 div{
-  margin: auto auto 1.25rem;
-  //background-color: white;
   min-height: 100px;
-  width: 90%;
   min-width: 400px;
-  border-bottom: .5px solid $primary-light;
-  //border-radius: 4px;
-  padding: 4rem 0.725rem 4rem;
+  background-color: white;
+  display: flex;
+  border: #F1F1F1 1px solid;
+  padding: 4rem 0;
   overflow: hidden;
   overflow-wrap: break-word;
 }

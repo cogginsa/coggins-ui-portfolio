@@ -26,6 +26,9 @@
 
   .link-to-map{
     text-align: end;
+    a > mat-icon{
+      margin-left: -4px;
+    }
   }
 
   .weather-info{

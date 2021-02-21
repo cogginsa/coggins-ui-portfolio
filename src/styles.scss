@@ -5,11 +5,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
 html{
   background-color: $page-background;
-  //background: white;
-  //background: rgb(33,33,33);
-  //background: linear-gradient(180deg, rgba(33,33,33,1) 13%, rgba(72,72,72,1) 52%, rgba(154,154,154,1) 91%);
 }
 
 
 html, body { height: 100%;  font-family: 'Raleway', sans-serif;}
 body { margin: 0; font-family: Raleway, sans-serif; }
+
+.component-link{
+  text-decoration: underline;
+  color: #03d3fc;
+  cursor: pointer;
+
+  mat-icon{
+    vertical-align: sub;
+    font-size: 16px;
+  }
+}

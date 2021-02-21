@@ -1,17 +1,18 @@
 @import './src/assets/colours';
 .banner {
   height: 100%;
-  background-color: lightblue;
-
-.banner-image {
-    background-image: url("../assets/mobileuiux.jpg");
+  // background-color: lightblue;
+  background-image: url("../assets/pexels-pixabay-219692.jpg");
+  
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+    
+.banner-overlay {
     height: 100%;
-    opacity: 0.75;
-
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
+    background-color: #B0B0D1;
+    opacity: 0.2;
+  }
   .down-icon{
     position: absolute;
     bottom: 10vh;
@@ -22,6 +23,42 @@
     }
   }
 }
+
+.banner-header-container{
+      z-index: 3;
+      position: absolute;
+      top: 14%;
+      width: 100%;
+      text-align: center;
+      color: white;
+
+      .text-wrapper{
+        display: inline-block;
+        min-width: 200px;
+      }
+      span{
+        display: block;
+        padding: 5px;
+        font-size: 32px;
+        font-weight: 400;
+        letter-spacing: 6px;
+      }
+      .pre-header{
+        text-align: start;
+      }
+      .main-header{
+        line-height: 0.9;
+        .main-header-text{
+          font-size: 64px;
+          text-align: center;
+          font-weight: 700;
+        }
+      }
+      .post-header{
+        text-align: end;
+        // font-size: 36px;
+      }
+    }
 
 app-nav-bar
 {

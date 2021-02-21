@@ -1,13 +1,13 @@
 @import './src/assets/colours';
-.example-form {
-  min-width: 150px;
-  max-width: 500px;
-  width: 100%;
-}
+// .example-form {
+//   min-width: 150px;
+//   max-width: 500px;
+//   width: 100%;
+// }
 
-.example-full-width {
-  width: 100%;
-}
+// .example-full-width {
+//   width: 100%;
+// }
 
 .weather-results-container{
   display: block;
@@ -41,11 +41,11 @@
     }
   }
 }
-.weather-section{
+// .weather-section{
   .weather-search{
-    max-width: 60vw !important;
+    max-width: 60vw;
   }
-}
+// }
 ::ng-deep .mat-autocomplete-panel{
   border-radius: 10px;    
 }

@@ -20,6 +20,10 @@ import {CityApiService} from "../api/cityApi";
 import { WeekForecastComponent } from './feature-components/weather/week-forecast/week-forecast.component';
 import { HourForecastComponent } from './feature-components/weather/hour-forecast/hour-forecast.component';
 import { DayForecastComponent } from './feature-components/weather/day-forecast/day-forecast.component';
+import { PortfolioComponent } from './feature-components/portfolio/portfolio.component';
+import { NewWeatherComponent } from './feature-components/new-weather/new-weather.component';
+import { WeatherDescComponent } from './feature-components/new-weather/weather-desc/weather-desc.component';
+import { WeatherAppComponent } from './feature-components/new-weather/weather-app/weather-app.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +35,11 @@ import { DayForecastComponent } from './feature-components/weather/day-forecast/
     SummaryComponentComponent,
     WeekForecastComponent,
     HourForecastComponent,
-    DayForecastComponent
+    DayForecastComponent,
+    PortfolioComponent,
+    NewWeatherComponent,
+    WeatherDescComponent,
+    WeatherAppComponent
   ],
   imports: [
     MatIconModule,

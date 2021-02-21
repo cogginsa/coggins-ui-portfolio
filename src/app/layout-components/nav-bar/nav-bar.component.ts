@@ -9,5 +9,6 @@ export class NavBarComponent {
   constructor() {}
 
   @Input() isBannerAtTop: boolean = true;
+  isPortfolioActive = true;
 
 }

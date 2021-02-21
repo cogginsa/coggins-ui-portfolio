@@ -1,11 +1,21 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div #banner class="banner">
-  <div class="banner-image">
-  <a (click)="scrollToFirstCard()" class="down-icon pointer">
+  <div class="banner-header-container">
+    <div class="text-wrapper">
+      <div><span class="pre-header">Abbie</span></div>
+      <div class="main-header"><span class="main-header-text">WEB DEVELOPER</span></div>
+      <div><span class="post-header">London</span></div>
+    </div>
+  </div>
+  <div class="banner-overlay">
+  <!-- <a (click)="scrollToFirstCard()" class="down-icon pointer">
     <mat-icon>arrow_circle_down</mat-icon>
-  </a>
+  </a> -->
+  </div>
 </div>
 <app-nav-bar [isBannerAtTop]="isBannerAtTop"></app-nav-bar>
+<app-portfolio></app-portfolio>
+<app-new-weather></app-new-weather>
 <app-large-card>
   <app-summary-component></app-summary-component>
 </app-large-card>

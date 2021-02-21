@@ -1,11 +1,11 @@
-<nav [ngClass]="isBannerAtTop ? 'transparentBanner' : 'blockBanner'" 
+<nav [ngClass]="isBannerAtTop ? 'hideBanner' : 'blockBanner'" 
         class="navbar" color="primary">
   <div>
     <div class="navbar-container">
       <ul class="nav-link-container" routerLinkActive="active">
-        <li><a class="nav-link-item" routerLink="home">Home</a></li>
-        <li><a class="nav-link-item" routerLink="about">About</a></li>
-        <li><a class="nav-link-item" routerLink="courses">Courses</a></li>
+        <li  [ngClass]="{'active': isPortfolioActive}"><a class="nav-link-item">PORTFOLIO</a></li>
+        <li><a class="nav-link-item" routerLink="about">ABOUT</a></li>
+        <li><a class="nav-link-item" routerLink="courses">CONTACT</a></li>
       </ul>
     </div>
   </div>

@@ -17,7 +17,7 @@ export class AppComponent {
     const viewportOffset = element.getBoundingClientRect();
     const top = viewportOffset.top;
     
-    if (top < -50) {
+    if (top < -200) {
       this.isBannerAtTop = false;
     } else this.isBannerAtTop = true;
     
