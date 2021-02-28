@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {InProgressService} from 'src/app/sevices/in-progress.service'
 
 @Component({
   selector: 'app-summary-component',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SummaryComponentComponent implements OnInit {
 
-  constructor() { }
+  constructor(private inProgress: InProgressService) { }
 
   ngOnInit() {
   }

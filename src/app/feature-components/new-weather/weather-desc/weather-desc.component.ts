@@ -4,7 +4,7 @@ import { Store } from '@ngrx/store';
 import { CityApiService } from 'src/api/cityApi';
 import { CityAutofillApiService } from 'src/api/cityAutofillApi';
 import { WeatherApiService } from 'src/api/weatherApi';
-import { AddWeatherAction, AddWeatherFailureAction, LoadWeather } from 'src/app/actions/weather.actions';
+import { AddWeatherAction, AddWeatherFailureAction, LoadWeather } from 'src/app/ngrx-store/actions/weather.actions';
 import { CityDateService } from 'src/app/sevices/city-date.service';
 import { UserLocationService } from 'src/app/sevices/user-location.service';
 

@@ -1,0 +1,24 @@
+.container{
+    min-height: 350px;
+    background: #DDDDDD;
+    width: 100vw;
+
+    align-items: center;
+    justify-content: center;
+    display: flex;  
+
+    color: #565656;
+
+    &:hover{
+        background: #eceaea;
+    }
+
+    .image{
+        margin: 1.25rem;
+        text-align: center;
+
+        // &:hover{
+        //     rotate: 180;
+        // }
+    }
+}

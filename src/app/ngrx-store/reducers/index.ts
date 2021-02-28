@@ -1,5 +1,5 @@
 import { ActionReducerMap, MetaReducer, Action, createSelector} from '@ngrx/store';
-import { environment } from '../../environments/environment';
+import { environment } from '../../../environments/environment';
 import { WeatherActionTypes, WeatherAction } from '../actions/weather.actions';
 
 export interface WeatherState {

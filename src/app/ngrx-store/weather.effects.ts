@@ -3,7 +3,7 @@ import { act, Actions, Effect, ofType } from '@ngrx/effects';
 import { map, catchError, switchMap } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { WeatherApiService } from 'src/api/weatherApi';
-import { AddWeatherFailureAction, LoadWeather, WeatherAction, WeatherActionTypes } from 'src/app/actions/weather.actions';
+import { AddWeatherFailureAction, LoadWeather, WeatherAction, WeatherActionTypes } from 'src/app/ngrx-store/actions/weather.actions';
 
 @Injectable()
 export class WeatherEffects {

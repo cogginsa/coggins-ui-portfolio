@@ -1,4 +1,5 @@
 import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
+import { InProgressService } from './sevices/in-progress.service';
 
 @Component({
   selector: 'app-root',
@@ -6,7 +7,7 @@ import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  constructor(){}
+  constructor(private inProgress: InProgressService){}
   isBannerAtTop = true;
 
   @ViewChild('banner') componentDiv: ElementRef;

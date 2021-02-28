@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LargeCardComponent } from './layout-components/large-card/large-card.component';
 import { WeatherApiService } from "../api/weatherApi";
-import { WeatherComponent } from './feature-components/weather/weather.component';
+// import { WeatherComponent } from './feature-components/weather/weather.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatFormFieldModule} from "@angular/material/form-field";
 import { NavBarComponent } from './layout-components/nav-bar/nav-bar.component';
@@ -18,34 +18,32 @@ import { CityAutofillApiService } from "../api/cityAutofillApi";
 import { MatProgressBarModule } from "@angular/material/progress-bar";
 import { SummaryComponentComponent } from './feature-components/summary-component/summary-component.component';
 import { CityApiService } from "../api/cityApi";
-import { WeekForecastComponent } from './feature-components/weather/week-forecast/week-forecast.component';
-import { HourForecastComponent } from './feature-components/weather/hour-forecast/hour-forecast.component';
-import { DayForecastComponent } from './feature-components/weather/day-forecast/day-forecast.component';
+// import { WeekForecastComponent } from './feature-components/weather/week-forecast/week-forecast.component';
+// import { HourForecastComponent } from './feature-components/weather/hour-forecast/hour-forecast.component';
+// import { DayForecastComponent } from './feature-components/weather/day-forecast/day-forecast.component';
 import { PortfolioComponent } from './feature-components/portfolio/portfolio.component';
 import { NewWeatherComponent } from './feature-components/new-weather/new-weather.component';
 import { WeatherDescComponent } from './feature-components/new-weather/weather-desc/weather-desc.component';
 import { WeatherAppComponent } from './feature-components/new-weather/weather-app/weather-app.component';
 import { StoreModule } from '@ngrx/store';
-import { reducers, metaReducers } from './reducers';
+import { reducers, metaReducers } from './ngrx-store/reducers';
 import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
-import { WeatherEffects } from './weather.effects';
+import { WeatherEffects } from './ngrx-store/weather.effects';
+import { InProgressComponent } from './feature-components/in-progress/in-progress.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LargeCardComponent,
-    WeatherComponent,
     NavBarComponent,
     SmallCardComponent,
     SummaryComponentComponent,
-    WeekForecastComponent,
-    HourForecastComponent,
-    DayForecastComponent,
     PortfolioComponent,
     NewWeatherComponent,
     WeatherDescComponent,
-    WeatherAppComponent
+    WeatherAppComponent,
+    InProgressComponent
   ],
   imports: [
     StoreDevtoolsModule.instrument({
