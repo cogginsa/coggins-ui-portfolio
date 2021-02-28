@@ -1,18 +1,18 @@
 <div class="weather-card item1">
     <div class="section">
-        <mat-icon>location_on</mat-icon><span>LONDON</span>
+        <mat-icon>location_on</mat-icon><span>{{weatherData?.name.toUpperCase() || "LONDON"}}</span>
     </div>
     <div class="weather-card item2">
-        HIGH: 18
+        HIGH: {{weatherData?.main.temp_max || 15}}°C
         <div class="weather-card item3">
-            LOW: 13
+            LOW: {{weatherData?.main.temp_min || 13}}°C
             <div class="weather-card item4">
                 <div class="info-container">
-                    <span class="temp">15°C</span>
-                    <span class="tag">SUNNY</span>
+                    <span class="temp">{{weatherData?.main.temp || 15}}°C</span>
+                    <span class="tag">{{weatherData?.weather[0].main.toUpperCase() || "SUNNY"}}</span>
                     <div class="info">
-                        <span>Wind: 12mph</span>
-                        <span>Humidity: 92%</span>
+                        <span>Wind: {{weatherData?.wind.speed || 12}}mph</span>
+                        <span>Humidity: {{weatherData?.main.humidity || 92}}%</span>
                         <span>Precipitation: 11%</span>
                     </div>
                 </div>

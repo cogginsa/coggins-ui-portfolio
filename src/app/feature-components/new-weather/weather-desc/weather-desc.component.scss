@@ -39,6 +39,13 @@
                 border: none;
             }
         }
+        button{
+            background: none;
+            border: none;
+            &:focus{
+                outline: none;
+            }
+        }
         mat-icon{
             vertical-align: middle;
             font-size: 20px;

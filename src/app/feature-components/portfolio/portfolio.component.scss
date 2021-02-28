@@ -4,7 +4,6 @@
 
 .portfolio{
   min-height: 100px;
-  width: 100%;
   min-width: 400px;
   border: #F1F1F1 1px solid;
   padding: 7rem 0;
@@ -29,7 +28,8 @@
     font-family: 'Roboto Slab';
     font-size: 14px;
     font-weight: 400;
-    padding: 1rem 5rem;
+    margin: 1rem 5rem;
+    // padding: 1rem 5rem;
     text-align: center;
   }
 }

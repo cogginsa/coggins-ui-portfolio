@@ -137,5 +137,8 @@
       }
     }
   },
-  "defaultProject": "portfolio-of-ui"
+  "defaultProject": "portfolio-of-ui",
+  "cli": {
+    "defaultCollection": "@ngrx/schematics"
+  }
 }

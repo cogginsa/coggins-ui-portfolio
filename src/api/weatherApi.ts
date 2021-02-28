@@ -1,9 +1,14 @@
 import { Injectable } from '@angular/core';
+import { Store } from '@ngrx/store';
 import axios, {AxiosRequestConfig} from "axios";
 import {Observable, of} from "rxjs";
+// import { addWeather } from 'src/app/store/actions/weather.actions';
+import {WeatherForLondon} from "src/mock-data/api-mock-data";
 
 @Injectable()
 export class WeatherApiService {
+  constructor(private store: Store){}
+  weatherForLondon = WeatherForLondon;
   options: AxiosRequestConfig = {
     method: 'GET',
     url: 'https://community-open-weather-map.p.rapidapi.com/weather',
@@ -22,55 +27,11 @@ export class WeatherApiService {
     }
   };
 
-  mockData = {
-  "coord":{
-    "lon":-0.13,
-    "lat":51.51
-  },
-  "weather":[
-    {
-      "id":804,
-      "main":"Clouds",
-      "description":"overcast clouds",
-      "icon":"04d"
-    }
-  ],
-  "base":"stations",
-  "main":{
-    "temp":12.5,
-    "feels_like":12.58,
-    "temp_min":11.67,
-    "temp_max":13.33,
-    "pressure":1012,
-    "humidity":92
-  },
-  "visibility":10000,
-  "wind":{
-    "speed":0.45,
-    "deg":281,
-    "gust":2.24
-  },
-  "clouds":{
-    "all":96
-  },
-  "dt":1606305277,
-  "sys":{
-    "type":3,
-    "id":2019646,
-    "country":"GB",
-    "sunrise":1606289744,
-    "sunset":1606319994
-  },
-  "timezone":0,
-  "id":2643743,
-  "name":"London",
-  "cod":200
-};
-
   getWeatherByCityMock(city){
     let observable$ = Observable.create( ( observer ) => {
-          observer.next( this.mockData );
+          observer.next( this.weatherForLondon );
           observer.complete();
+          // this.store.dispatch(addWeather(this.weatherForLondon));
     } );
     return observable$;
   }

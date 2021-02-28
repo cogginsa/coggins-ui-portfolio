@@ -77,8 +77,6 @@ export class WeatherComponent implements OnInit, AfterViewInit {
   }
 
   removeMili(cityDateTime){
-    console.log("cityDateTime: ", cityDateTime)
-    console.log("cityDateTime2: ", cityDateTime.split(".")[0])
     return cityDateTime.split(".")[0];
   }
 
