@@ -1,4 +1,5 @@
 @import './src/assets/colours';
+
 .banner {
   height: 100%;
   background-image: url("../assets/pexels-pixabay-219692.jpg");
@@ -11,6 +12,14 @@
     height: 100%;
     background-color: #B0B0D1;
     opacity: 0.2;
+  }
+
+  @media screen and (max-width: 860px) {
+    .banner-overlay {
+      height: 100%;
+      background-color: black;
+      // opacity: 0.2;
+    }
   }
   .down-icon{
     position: absolute;
@@ -72,4 +81,37 @@ app-nav-bar
 
 body{
   overflow-x: hidden;
+}
+
+.mobile-warning{
+  display: none;
+}
+
+@media screen and (max-width: 860px) {
+  .page-content{
+    display: none;
+  }
+
+  .mobile-warning{
+    display: block;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    background-color: #252525;
+    flex-direction: column; 
+
+    img{
+      margin: 2.25rem;
+      display: block;
+      height: 100px;
+      color: white;
+    }
+    span{
+      margin: 2.25rem;
+      display: block;
+    }
+  }
 }

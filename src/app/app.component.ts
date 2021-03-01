@@ -7,7 +7,7 @@ import { InProgressService } from './sevices/in-progress.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  constructor(private inProgress: InProgressService){}
+  constructor(public inProgress: InProgressService){}
   isBannerAtTop = true;
 
   @ViewChild('banner') componentDiv: ElementRef;
