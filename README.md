@@ -7,6 +7,11 @@ This project uses [Angular CLI](https://github.com/angular/angular-cli) version 
 run command
 `ng build --prod --output-path docs --base-href /coggins-ui-portfolio/`
 
+After build, it will generate a /docs directory
+copy the index.html and rename to 404.html
+
+push this to github and the deployment process will automatically start (main)
+
 
 ## Development server
 
