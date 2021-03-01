@@ -2,6 +2,12 @@
 
 This project uses [Angular CLI](https://github.com/angular/angular-cli) version 11.0.9
 
+## How to deploy (github pages)
+
+run command
+`ng build --prod --output-path docs --base-href /coggins-ui-portfolio/`
+
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
