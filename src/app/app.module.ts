@@ -31,6 +31,8 @@ import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
 import { WeatherEffects } from './ngrx-store/weather.effects';
 import { InProgressComponent } from './feature-components/in-progress/in-progress.component';
+import { AboutComponent } from './feature-components/about/about.component';
+import { FooterComponent } from './feature-components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,9 @@ import { InProgressComponent } from './feature-components/in-progress/in-progres
     NewWeatherComponent,
     WeatherDescComponent,
     WeatherAppComponent,
-    InProgressComponent
+    InProgressComponent,
+    AboutComponent,
+    FooterComponent
   ],
   imports: [
     StoreDevtoolsModule.instrument({

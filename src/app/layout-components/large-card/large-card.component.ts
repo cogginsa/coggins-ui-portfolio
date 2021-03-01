@@ -6,7 +6,8 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./large-card.component.scss']
 })
 export class LargeCardComponent implements OnInit {
-
+  @Input() customColour:string = "white";
+  
   constructor() { }
 
   ngOnInit() {

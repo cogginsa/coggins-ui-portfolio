@@ -16,9 +16,10 @@
 <app-nav-bar [isBannerAtTop]="isBannerAtTop"></app-nav-bar>
 <app-portfolio></app-portfolio>
 <app-new-weather></app-new-weather>
-<app-large-card>
-  <app-summary-component *ngIf="inProgress.isFeatureInProgress('contact'); else inProgressDisplay"></app-summary-component>>
+<app-large-card *ngIf="inProgress.isFeatureInProgress('contact'); else inProgressDisplay">
+  <app-summary-component></app-summary-component>>
 </app-large-card>
 <ng-template #inProgressDisplay><app-in-progress></app-in-progress></ng-template>
-
-<router-outlet></router-outlet>
+<app-about></app-about>
+<app-footer></app-footer>
+<!-- <router-outlet></router-outlet> -->
